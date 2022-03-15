@@ -291,6 +291,14 @@ canvas.slotgraph {
 
   .name {
     font-size: calc(1vw + 7pt);
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.60);
+    padding-top: 24px;
+    padding-bottom: 24px;
+    position: absolute;
+    bottom: 0px;
+    margin-bottom: 0px;
   }
 
   .mic_id {
@@ -303,6 +311,7 @@ canvas.slotgraph {
     display: flex;
     justify-content:center;
     align-items:center;
+    position: relative;
   }
 
   .info-drawer {
