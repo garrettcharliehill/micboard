@@ -40,7 +40,7 @@ $ sudo systemctl enable micboard.service
 Check the [configuration](configuration.md) docs for more information on configuring micboard.
 
 ## macOS - Desktop Application
-Download and run micboard from the project's [GitHub Release](https://github.com/karlcswanson/micboard/releases/) page.  Add RF devices to the 'Slot Configuration' and press 'Save'.
+Download and run micboard from the project's [GitHub Release](https://github.com/garrettcharliehill/micboard/releases/) page.  Add RF devices to the 'Slot Configuration' and press 'Save'.
 
 Check the [configuration](configuration.md) docs for more information on configuring micboard.
 
