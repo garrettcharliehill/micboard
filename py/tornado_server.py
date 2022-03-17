@@ -153,9 +153,6 @@ class MicboardReloadConfigHandler(web.RequestHandler):
         self.write("restarting")
 
 class BackgroundImageUploadHandler(web.RequestHandler):
-    def get(self):
-        print('get works!! (and charlie was here)')
-
     def post(self):
         filename = self.request.arguments['filename'][0]
         file_data = self.request.files['file'][0]['body']
