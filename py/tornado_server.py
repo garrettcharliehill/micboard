@@ -152,6 +152,19 @@ class MicboardReloadConfigHandler(web.RequestHandler):
         config.reconfig()
         self.write("restarting")
 
+class BackgroundImageUploadHandler(web.RequestHandler):
+    def get(self):
+        print('get works!! (and charlie was here)')
+
+    def post(self):
+        filename = self.request.arguments['filename'][0]
+        file_data = self.request.files['file'][0]['body']
+        print(filename)
+        print(type(filename))
+        print(type(file_data))
+        file = open(config.get_gif_dir() + '/' + filename.decode('utf-8'), 'wb')
+        file.write(file_data)
+        file.close()
 
 
 # https://stackoverflow.com/questions/12031007/disable-static-file-caching-in-tornado
@@ -172,6 +185,7 @@ def twisted():
         (r'/api/config', ConfigHandler),
         # (r'/restart/', MicboardReloadConfigHandler),
         (r'/static/(.*)', web.StaticFileHandler, {'path': config.app_dir('static')}),
+        (r'/bg-image', BackgroundImageUploadHandler),
         (r'/bg/(.*)', NoCacheHandler, {'path': config.get_gif_dir()})
     ])
     # https://github.com/tornadoweb/tornado/issues/2308
