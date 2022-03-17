@@ -283,8 +283,26 @@ export function renderDisplayList(dl) {
       t.querySelector('.col-sm').classList.add('blank');
     }
     document.getElementById('micboard').appendChild(t);
+    const el = document.querySelector(`#slot-${tx[e].slot} .mic_name`);
+    el?.addEventListener('dragover', ev => {
+      ev.preventDefault()
+      ev.target.classList.add('dragging')
+    })
+    el?.addEventListener('drop', ev => {
+      ev.preventDefault()
+      ev.target.classList.remove('dragging')
+      const filename = ev.target.querySelector('.name').innerHTML.toLowerCase()
+      for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+        const formData = new FormData()
+        formData.append('file', ev.dataTransfer.files[i])
+        fetch(`bg-image?filename=${filename}.jpg`, { method: 'POST', body: formData }).then(() => window.location.reload())
+      }
+    })
+    console.log('hello, world')
+    el?.addEventListener('dragleave', ev => {
+      ev.target.classList.remove('dragging')
+    })
   });
-
   infoToggle();
 }
 
