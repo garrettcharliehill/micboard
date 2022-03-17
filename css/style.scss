@@ -314,6 +314,11 @@ canvas.slotgraph {
     position: relative;
   }
 
+  .mic_name.dragging {
+    background: #32a852 !important;
+    background-color: #32a852 !important;
+  }
+
   .info-drawer {
     /* height: 250px; */
   }
